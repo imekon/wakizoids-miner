@@ -10,5 +10,9 @@ func _ready():
 	apply_impulse(Vector2(), Vector2(0, -ACCELERATION).rotated(deg2rad(angle)))
 
 func on_body_entered(body):
-	Globals.credits += credits
-	queue_free()
+	print("body entered rock")
+	if body.is_in_group("bullet"):
+		print("bullet hits rock")
+		Globals.credits += credits
+		body.queue_free()
+		queue_free()
