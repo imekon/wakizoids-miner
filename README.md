@@ -1,1 +1,2 @@
-# wakizoids-miner
+# Wakizoids: miner
+
