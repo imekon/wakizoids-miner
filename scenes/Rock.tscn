@@ -20,6 +20,7 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
+credits = 30
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -27,3 +28,4 @@ script = ExtResource( 1 )
 build_mode = 0
 polygon = PoolVector2Array(  )
 
+[connection signal="body_entered" from="." to="." method="on_body_entered"]

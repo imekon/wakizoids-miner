@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Wakizoids: Miners"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Welcome.tscn"
 config/icon="res://icon.png"
 
 [autoload]

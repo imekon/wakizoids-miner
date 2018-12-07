@@ -50,9 +50,6 @@ func _physics_process(delta):
 		SHOOTING:
 			process_shooting(delta)
 			
-#func _draw():
-#	draw_line(Vector2(0, 0), Vector2(500, 0), Color(1.0, 0.0, 0.0))
-			
 func damage(amount):
 	shields -= amount
 	if shields < 0:
