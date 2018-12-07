@@ -7,6 +7,7 @@ var owner_ship
 
 func _ready():
 	start_time = OS.get_unix_time()
+	add_to_group("bullet")
 
 func _physics_process(delta):
 	var thrust = MOVEMENT * delta

@@ -3,9 +3,7 @@
 [ext_resource path="res://scenes/Rock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/rock6.png" type="Texture" id=2]
 
-[node name="Rock" index="0" instance=ExtResource( 1 )]
-contacts_reported = 1
-contact_monitor = true
+[node name="Rock" instance=ExtResource( 1 )]
 credits = 100
 
 [node name="Sprite" parent="." index="0"]

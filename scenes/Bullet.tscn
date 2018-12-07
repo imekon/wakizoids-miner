@@ -8,9 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 4, 6 )
 
-[node name="Bullet" type="KinematicBody2D" groups=[
-"bullet",
-]]
+[node name="Bullet" type="KinematicBody2D"]
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
