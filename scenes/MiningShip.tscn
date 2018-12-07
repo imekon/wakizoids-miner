@@ -30,6 +30,9 @@ texture = ExtResource( 2 )
 build_mode = 0
 polygon = PoolVector2Array( 114.435, -14.4156, 100.215, -22.3788, 55.8487, -45.1308, 23.4271, -63.3325, -8.99457, -62.7637, -40.8474, -63.9013, -72.7003, -65.0389, -108.535, -47.9748, -111.948, -15.5532, -111.948, 13.4557, -108.535, 40.1893, -77.8195, 60.6662, -39.7098, 62.9413, -5.58179, 63.5102, 29.1151, 60.0974, 56.9863, 41.3269, 102.49, 21.9877, 115.573, 10.6117 )
 
+[node name="FiringPosition" type="Position2D" parent="."]
+position = Vector2( 150, 0 )
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Node2D"]
