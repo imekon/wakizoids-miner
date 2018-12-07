@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Rock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/rock2.png" type="Texture" id=2]
+
+[node name="Rock" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -70, -160, 96.6342, -120.489, 145.084, -2.68835, 40.584, 65.7118, 72.8841, 156.912, -57.2661, 154.062, -141.816, 41.9617, -83.8661, -47.3384 )
+

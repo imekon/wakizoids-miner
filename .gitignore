@@ -1,0 +1,12 @@
+builds/
+screenshots/
+.import/
+.mono/
+
+*.dll
+*.exp
+*.lib
+*.obj
+*.pdb
+*.cache
+*.*~
