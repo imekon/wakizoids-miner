@@ -4,8 +4,8 @@ const MOVEMENT = 700.0
 
 export var attack: int = 30
 export var energy: int = 500
-export var shields: int = 60
-export var health: int = 50
+export var shields: int = 100
+export var health: int = 100
 
 onready var left_position = $LeftPosition
 onready var firing_position = $FiringPosition

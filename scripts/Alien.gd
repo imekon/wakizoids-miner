@@ -49,10 +49,11 @@ func _physics_process(delta):
 			process_turning_to_shoot(delta)
 		SHOOTING:
 			process_shooting(delta)
-			
+
 func damage(amount):
 	shields -= amount
 	if shields < 0:
+		Globals.khi += 0.005
 		queue_free()
 		
 	status = TARGETING
@@ -74,6 +75,10 @@ func process_stop(delta):
 		status = DRIFTING
 	
 func process_drifting(delta):
+	if checking_khi():
+		status = TARGETING
+		return
+		
 	checking_edge_universe()
 	thrust = MOVEMENT * delta
 	var rot = rotation_degrees
@@ -81,6 +86,13 @@ func process_drifting(delta):
 	var collide = move_and_collide(direction)
 	if shields < 100:
 		shields += 1
+		
+func checking_khi():
+	var factor = randf()
+	if factor < Globals.khi:
+		return true
+		
+	return false
 		
 func checking_edge_universe():
 	var x = position.x
@@ -94,7 +106,7 @@ func checking_edge_universe():
 	rotation_degrees -= 180 + offset	
 		
 func process_targeting(delta):
-	var ships = get_tree().get_nodes_in_group("player")
+	var ships = get_tree().get_nodes_in_group("player_ships")
 	var closest_distance = 999999
 	var closest_ship = null
 	for ship in ships:

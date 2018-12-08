@@ -15,6 +15,7 @@ font_data = ExtResource( 3 )
 
 [node name="MiningShip" type="KinematicBody2D" groups=[
 "mining_ship",
+"player_ships",
 ]]
 input_pickable = false
 collision_layer = 1

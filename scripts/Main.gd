@@ -51,7 +51,7 @@ func _physics_process(delta):
 	credits_label.text = "Credits: %d" % Globals.credits
 	fleet_label.text = "Fleet: %d" % get_tree().get_nodes_in_group("mining_ship").size()
 	rocks_label.text = "Rocks: %d" % get_tree().get_nodes_in_group("rocks").size()
-	khi_label.text = "Khi: %d" % Globals.khi
+	khi_label.text = "Khi: %1.2f" % Globals.khi
 
 	if Input.is_action_just_pressed("ui_jump"):
 		process_jump()
@@ -148,7 +148,7 @@ func generate_alien_ship(alien, x : int, y : int):
 	return ship
 
 func on_player_dead():
-	print("player has died")
+	get_tree().change_scene("res://scenes/GameOver.tscn")
 	
 func on_jump_pressed():
 	if !destination_list.is_anything_selected():
