@@ -166,6 +166,8 @@ func on_jump_pressed():
 		jump_item(item)
 	else:
 		jump_anywhere()
+		
+	process_jump()
 
 func jump_item(item):
 	var position = item.global_position

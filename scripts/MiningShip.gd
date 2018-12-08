@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-enum STATUS { IDLE, SLEEPING, TURNING, MOVING, TURN_TO_SHOOT, SHOOTING }
+enum STATUS { IDLE, STOP, SLEEPING, TURNING, MOVING, TURN_TO_SHOOT, SHOOTING }
 
 const MOVEMENT = 200.0
 const SLEEP_TIME = 3000
@@ -8,6 +8,7 @@ const SLEEP_TIME = 3000
 onready var label_node = $Node2D
 onready var label = $Node2D/Label
 onready var firing_position = $FiringPosition
+onready var proximity_position = $ProximityPosition
 
 onready var Bullet = load("res://scenes/Bullet.tscn")
 onready var TargetingHelper = load("res://scripts/TargetingHelper.gd")
@@ -16,6 +17,8 @@ var status
 var thrust
 var last_distance
 var last_fired
+var last_stop
+var limit_stop
 var targeting_helper
 var firing_count
 
@@ -37,6 +40,9 @@ func _physics_process(delta):
 		IDLE:
 			process_idle(delta)
 			label.text = "IDLE"
+		STOP:
+			process_stop(delta)
+			label.text = "STOP"
 		SLEEPING:
 			process_sleeping(delta)
 			label.text = "SLEEPING"
@@ -44,8 +50,9 @@ func _physics_process(delta):
 			process_turning(delta)
 			label.text = "TURNING"
 		MOVING:
-			process_moving(delta)
-			label.text = "MOVING"
+			if !process_proximity():
+				process_moving(delta)
+				label.text = "MOVING"
 		TURN_TO_SHOOT:
 			process_turn_to_shoot(delta)
 			label.text = "SHOOT"
@@ -55,6 +62,20 @@ func _physics_process(delta):
 	
 func set_id(value):
 	label.text = "Mining Ship: %d" % value
+	
+func process_proximity():
+	var space = get_world_2d().direct_space_state
+	var result = space.intersect_ray(global_position, proximity_position.global_position, [self])
+	if result:
+		if targeting_helper.is_target(result.collider):
+			return false
+			
+		last_stop = OS.get_ticks_msec()
+		limit_stop = Globals.random_range2(1000, 3000)
+		status = STOP
+		return true
+		
+	return false
 	
 func process_idle(delta):
 	targeting_helper.clear()
@@ -79,6 +100,11 @@ func process_idle(delta):
 	targeting_helper.plot_course_to_target(closest_position)
 	
 	status = TURNING
+	
+func process_stop(delta):
+	var now = OS.get_ticks_msec()
+	if now - last_stop > limit_stop:
+		status = MOVING
 	
 func process_sleeping(delta):
 	var now = OS.get_ticks_msec()

@@ -32,3 +32,10 @@ func plot_course_to_target(ship_position):
 	target_angle = rad2deg(target_position.angle_to_point(ship_position))
 	return true
 
+func is_target(what):
+	if target != null:
+		if target.get_ref() == what:
+			return true
+			
+	return false
+	

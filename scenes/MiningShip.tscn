@@ -33,6 +33,9 @@ polygon = PoolVector2Array( 114.435, -14.4156, 100.215, -22.3788, 55.8487, -45.1
 [node name="FiringPosition" type="Position2D" parent="."]
 position = Vector2( 150, 0 )
 
+[node name="ProximityPosition" type="Position2D" parent="."]
+position = Vector2( 420, 0 )
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Node2D"]
