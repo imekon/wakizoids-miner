@@ -3,7 +3,7 @@ extends KinematicBody2D
 enum STATUS { IDLE, SLEEPING, TURNING, MOVING, TURN_TO_SHOOT, SHOOTING }
 
 const MOVEMENT = 200.0
-const SLEEP_TIME = 30000
+const SLEEP_TIME = 3000
 
 onready var label_node = $Node2D
 onready var label = $Node2D/Label
@@ -36,16 +36,22 @@ func _physics_process(delta):
 	match status:
 		IDLE:
 			process_idle(delta)
+			label.text = "IDLE"
 		SLEEPING:
 			process_sleeping(delta)
+			label.text = "SLEEPING"
 		TURNING:
 			process_turning(delta)
+			label.text = "TURNING"
 		MOVING:
 			process_moving(delta)
+			label.text = "MOVING"
 		TURN_TO_SHOOT:
 			process_turn_to_shoot(delta)
+			label.text = "SHOOT"
 		SHOOTING:
 			process_shooting(delta)
+			label.text = "SHOOTING"
 	
 func set_id(value):
 	label.text = "Mining Ship: %d" % value
@@ -59,7 +65,7 @@ func process_idle(delta):
 	var closest_position
 	for rock in rocks:
 		var pos = rock.global_position
-		var dist = position.distance_to(pos)
+		var dist = global_position.distance_to(pos)
 		if dist < closest_dist && !rock.is_queued_for_deletion():
 			closest_dist = dist
 			closest_rock = rock
@@ -70,7 +76,7 @@ func process_idle(delta):
 		return
 		
 	targeting_helper.set_target(closest_rock)
-	targeting_helper.plot_course_to_target(position)
+	targeting_helper.plot_course_to_target(closest_position)
 	
 	status = TURNING
 	
@@ -80,7 +86,7 @@ func process_sleeping(delta):
 		status = IDLE
 	
 func process_turning(delta):
-	if !targeting_helper.plot_course_to_target(position):
+	if !targeting_helper.plot_course_to_target(global_position):
 		return
 		
 	var angle = rotation_degrees
@@ -97,7 +103,7 @@ func process_turning(delta):
 		status = MOVING
 	
 func process_moving(delta):
-	if !targeting_helper.plot_course_to_target(position):
+	if !targeting_helper.plot_course_to_target(global_position):
 		return
 		
 	thrust = MOVEMENT * delta
@@ -112,7 +118,7 @@ func process_moving(delta):
 		status = TURN_TO_SHOOT
 	
 func process_turn_to_shoot(delta):
-	if !targeting_helper.plot_course_to_target(position):
+	if !targeting_helper.plot_course_to_target(global_position):
 		return
 
 	var angle = rotation_degrees
