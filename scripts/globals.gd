@@ -1,5 +1,7 @@
 extends Node
 
+const EDGE_UNIVERSE = 32768
+
 enum FILTER { FILTER_NONE, FILTER_ALIENS, FILTER_FLEET, FILTER_ROCKS, FILTER_PLANETS }
 
 var credits: int = 0

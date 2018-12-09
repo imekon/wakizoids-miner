@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-const EDGE_UNIVERSE = 65536
 const MOVEMENT = 200.0
 
 enum STATUS { STOP, DRIFTING, TARGETING, TURNING, MOVING, TURNING_TO_SHOOT, SHOOTING }
@@ -106,7 +105,7 @@ func checking_edge_universe():
 	var y = position.y
 	
 	# we're nowhere near the edge
-	if x > -EDGE_UNIVERSE and x < EDGE_UNIVERSE and y > -EDGE_UNIVERSE and y < EDGE_UNIVERSE:
+	if x > -Globals.EDGE_UNIVERSE and x < Globals.EDGE_UNIVERSE and y > -Globals.EDGE_UNIVERSE and y < Globals.EDGE_UNIVERSE:
 		return
 		
 	var offset = Globals.random_range(30)
