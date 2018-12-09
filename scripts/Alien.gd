@@ -18,6 +18,7 @@ var targeting_helper
 var shields : int
 var firing_count : int
 var last_fired
+var last_khi = 0
 var last_stop = 0
 var limit_stop = 0
 
@@ -88,6 +89,12 @@ func process_drifting(delta):
 		shields += 1
 		
 func checking_khi():
+	var now = OS.get_ticks_msec()
+	if now - last_khi < 1000:
+		return false
+
+	last_khi = now
+	
 	var factor = randf()
 	if factor < Globals.khi:
 		return true

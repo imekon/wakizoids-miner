@@ -3,6 +3,7 @@ extends RigidBody2D
 const ACCELERATION = 150
 
 export var credits = 30
+export var khi_offset = 0.0
 
 func _ready():
 	add_to_group("rocks")
@@ -12,5 +13,6 @@ func _ready():
 func on_body_entered(body):
 	if body.is_in_group("bullet"):
 		Globals.credits += credits
+		Globals.khi += khi_offset
 		body.queue_free()
 		queue_free()

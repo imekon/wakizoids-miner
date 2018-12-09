@@ -2,10 +2,8 @@ extends KinematicBody2D
 
 const MOVEMENT = 700.0
 
-export var attack: int = 30
-export var energy: int = 500
+export var energy: float = 500.0
 export var shields: int = 100
-export var health: int = 100
 
 onready var left_position = $LeftPosition
 onready var firing_position = $FiringPosition
@@ -48,6 +46,12 @@ func _physics_process(delta):
 	rotate(deg2rad(angle))
 
 	thrust *= 0.99
+	
+	if energy < 500:
+		energy += 0.1
+	else:
+		if shields < 100:
+			shields += 1
 	
 func process_fire():
 	var now = OS.get_ticks_msec()

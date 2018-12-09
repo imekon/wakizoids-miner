@@ -14,6 +14,7 @@ onready var Bullet = load("res://scenes/Bullet.tscn")
 onready var TargetingHelper = load("res://scripts/TargetingHelper.gd")
 
 var status
+var shields = 100
 var thrust
 var last_distance
 var last_fired
@@ -23,6 +24,8 @@ var targeting_helper
 var firing_count
 
 var id setget set_id
+
+signal mining_ship_killed
 
 func _ready():
 	targeting_helper = TargetingHelper.new()
@@ -62,6 +65,12 @@ func _physics_process(delta):
 	
 func set_id(value):
 	label.text = "Mining Ship: %d" % value
+	
+func damage(amount):
+	shields -= amount
+	if shields < 0:
+		emit_signal("mining_ship_killed")
+		queue_free()
 	
 func process_proximity():
 	var space = get_world_2d().direct_space_state

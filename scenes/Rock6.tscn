@@ -5,6 +5,7 @@
 
 [node name="Rock" instance=ExtResource( 1 )]
 credits = 100
+khi_offset = 0.002
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
