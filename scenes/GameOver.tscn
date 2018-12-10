@@ -101,14 +101,18 @@ custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]You're Dead![/center]
 
-Don't tell me... you poked the aliens until they responded with deadly force!"
+Don't tell me... you poked the aliens until they responded with deadly force!
+
+"
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
 text = "You're Dead!
 
-Don't tell me... you poked the aliens until they responded with deadly force!"
+Don't tell me... you poked the aliens until they responded with deadly force!
+
+"
 scroll_active = true
 scroll_following = false
 selection_enabled = false

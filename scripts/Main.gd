@@ -121,7 +121,6 @@ func refresh_jump_locations():
 	for planet in planets:
 		destination_list.add_item(str(index) + " " + planet.planet_name)
 		destination_list.set_item_metadata(i, planet)
-		# print("planet: %d, %d" % [planet.global_position.x, planet.global_position.y])
 		index += 1
 		i += 1
 
@@ -157,7 +156,9 @@ func generate_planet(planet, x: int, y: int):
 	return generate_something(planet, x, y)
 	
 func generate_rock(rock, x: int, y: int):
-	return generate_something(rock, x, y)
+	var p = generate_something(rock, x, y)
+	p.connect("alien_lodged_complaint", self, "on_alien_ship_lodged_complaint")
+	return p
 	
 func generate_stuff():
 	generate_something(Cat, Globals.random_range(65536), Globals.random_range(65536))
@@ -190,6 +191,12 @@ func on_player_dead():
 	
 func on_mining_ship_killed():
 	show_message("Mining Ship destroyed!")
+	
+func on_alien_ship_lodged_complaint():
+	if Globals.khi > 0.5:
+		show_message("BEWARE! The aliens have declared war!")
+	else:	
+		show_message("BEWARE! The aliens have lodged a complaint!")
 	
 func on_jump_pressed():
 	if !destination_list.is_anything_selected():

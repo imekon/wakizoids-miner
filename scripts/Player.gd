@@ -52,6 +52,9 @@ func _physics_process(delta):
 	else:
 		if shields < 100:
 			shields += 1
+			
+	if Globals.credits < 0:
+		emit_signal("player_dead")
 	
 func process_fire():
 	var now = OS.get_ticks_msec()

@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+const KHI_INCREMENT = 0.01
+const KHI_DECREMENT = 0.005
+
 const MOVEMENT = 200.0
 
 enum STATUS { STOP, DRIFTING, TARGETING, TURNING, MOVING, TURNING_TO_SHOOT, SHOOTING }
@@ -53,7 +56,7 @@ func _physics_process(delta):
 func damage(amount):
 	shields -= amount
 	if shields < 0:
-		Globals.khi += 0.005
+		Globals.khi += KHI_INCREMENT
 		queue_free()
 		
 	status = TARGETING
@@ -194,5 +197,6 @@ func process_shooting(delta):
 		firing_count += 1
 
 	if firing_count > 5:
+		Globals.khi += KHI_DECREMENT
 		status = TARGETING
 		targeting_helper.clear()

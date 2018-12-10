@@ -104,3 +104,19 @@ func _draw():
 			var y = (pos.y - playerPos.y) * trackingRatio + TRACKING_HEIGHT / 2
 			rect = Rect2(x - 1, y - 1, 3, 3)
 			draw_rect(rect, colour)
+
+	if filter == Globals.FILTER_NONE or filter == Globals.FILTER_STUFF:
+		colour = Color(1, 0, 1)
+	else:
+		colour = gray_colour
+
+	# location of stuff
+	var stuff = get_tree().get_nodes_in_group("stuff")
+	for thing in stuff:
+		var pos = thing.global_position
+		var dist = playerPos.distance_to(pos)
+		if dist < trackingRange2:
+			var x = (pos.x - playerPos.x) * trackingRatio + TRACKING_WIDTH / 2
+			var y = (pos.y - playerPos.y) * trackingRatio + TRACKING_HEIGHT / 2
+			rect = Rect2(x - 1, y - 1, 3, 3)
+			draw_rect(rect, colour)

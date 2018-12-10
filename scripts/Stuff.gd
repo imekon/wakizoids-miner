@@ -9,7 +9,7 @@ func on_body_entered(body):
 	if body.is_in_group("player"):
 		Globals.credits += collection_credits
 		
-	if body.is_in_group("bullets"):
+	if body.is_in_group("bullet"):
 		Globals.credits -= shooting_debits
 		
 	queue_free()

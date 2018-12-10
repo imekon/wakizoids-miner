@@ -17,7 +17,9 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
 
-[node name="Stuff" type="RigidBody2D"]
+[node name="Stuff" type="RigidBody2D" groups=[
+"stuff",
+]]
 input_pickable = false
 collision_layer = 1
 collision_mask = 1

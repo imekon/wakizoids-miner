@@ -27,6 +27,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("filter_rocks"):
 		set_filter(Globals.FILTER_ROCKS)
 		
+	if Input.is_action_just_pressed("filter_stuff"):
+		set_filter(Globals.FILTER_STUFF)
+		
 func set_filter(filter):
 	scanner.filter = filter
 

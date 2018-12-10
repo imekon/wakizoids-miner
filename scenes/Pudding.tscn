@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/Stuff.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/xmas pudding.png" type="Texture" id=2]
 
-[node name="Pudding" index="0" groups=[
+[node name="Pudding" groups=[
 "xmas_pudding",
 ] instance=ExtResource( 1 )]
 collection_credits = 1000
