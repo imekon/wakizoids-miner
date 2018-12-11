@@ -42,26 +42,26 @@ func _physics_process(delta):
 	match status:
 		IDLE:
 			process_idle(delta)
-			label.text = "IDLE"
+			# label.text = "IDLE"
 		STOP:
 			process_stop(delta)
-			label.text = "STOP"
+			# label.text = "STOP"
 		SLEEPING:
 			process_sleeping(delta)
-			label.text = "SLEEPING"
+			# label.text = "SLEEPING"
 		TURNING:
 			process_turning(delta)
-			label.text = "TURNING"
+			# label.text = "TURNING"
 		MOVING:
 			if !process_proximity():
 				process_moving(delta)
-				label.text = "MOVING"
+				# label.text = "MOVING"
 		TURN_TO_SHOOT:
 			process_turn_to_shoot(delta)
-			label.text = "SHOOT"
+			# label.text = "SHOOT"
 		SHOOTING:
 			process_shooting(delta)
-			label.text = "SHOOTING"
+			# label.text = "SHOOTING"
 	
 func set_id(value):
 	label.text = "Mining Ship: %d" % value
