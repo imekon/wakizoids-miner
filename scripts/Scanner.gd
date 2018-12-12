@@ -13,22 +13,22 @@ func _process(delta):
 		set_long_range_scanner()
 		
 	if Input.is_action_just_pressed("filter_aliens"):
-		set_filter(Globals.FILTER_ALIENS)
+		set_filter(Globals.FILTER.FILTER_ALIENS)
 		
 	if Input.is_action_just_pressed("filter_fleet"):
-		set_filter(Globals.FILTER_FLEET)
+		set_filter(Globals.FILTER.FILTER_FLEET)
 		
 	if Input.is_action_just_pressed("filter_none"):
-		set_filter(Globals.FILTER_NONE)
+		set_filter(Globals.FILTER.FILTER_NONE)
 		
 	if Input.is_action_just_pressed("filter_planets"):
-		set_filter(Globals.FILTER_PLANETS)
+		set_filter(Globals.FILTER.FILTER_PLANETS)
 		
 	if Input.is_action_just_pressed("filter_rocks"):
-		set_filter(Globals.FILTER_ROCKS)
+		set_filter(Globals.FILTER.FILTER_ROCKS)
 		
 	if Input.is_action_just_pressed("filter_stuff"):
-		set_filter(Globals.FILTER_STUFF)
+		set_filter(Globals.FILTER.FILTER_STUFF)
 		
 func set_filter(filter):
 	scanner.filter = filter

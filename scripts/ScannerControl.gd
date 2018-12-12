@@ -24,7 +24,7 @@ func set_long_range_scan():
 	trackingRatio = TRACKING_HEIGHT / trackingRange
 	
 func _ready():
-	filter = Globals.FILTER_NONE
+	filter = Globals.FILTER.FILTER_NONE
 
 func _process(delta):
 	update()
@@ -42,7 +42,7 @@ func _draw():
 	
 	var gray_colour = Color(0.3, 0.3, 0.3)
 	
-	if filter == Globals.FILTER_NONE or filter == Globals.FILTER_ROCKS:
+	if filter == Globals.FILTER.FILTER_NONE or filter == Globals.FILTER.FILTER_ROCKS:
 		colour = Color(0.0, 1.0, 0.0)
 	else:
 		colour = gray_colour
@@ -58,7 +58,7 @@ func _draw():
 			draw_rect(rect, colour)
 	
 	# location of aliens
-	if filter == Globals.FILTER_NONE or filter == Globals.FILTER_ALIENS:
+	if filter == Globals.FILTER.FILTER_NONE or filter == Globals.FILTER.FILTER_ALIENS:
 		colour = Color(1.0, 1.0, 0.5)
 	else:
 		colour = gray_colour
@@ -74,7 +74,7 @@ func _draw():
 			draw_rect(rect, colour)
 	
 	# location of fleet
-	if filter == Globals.FILTER_NONE or filter == Globals.FILTER_FLEET:
+	if filter == Globals.FILTER.FILTER_NONE or filter == Globals.FILTER.FILTER_FLEET:
 		colour = Color(1.0, 0.0, 1.0)
 	else:
 		colour = gray_colour
@@ -90,7 +90,7 @@ func _draw():
 			draw_rect(rect, colour)
 	
 	# location of planets
-	if filter == Globals.FILTER_NONE or filter == Globals.FILTER_PLANETS:
+	if filter == Globals.FILTER.FILTER_NONE or filter == Globals.FILTER.FILTER_PLANETS:
 		colour = Color(0.5, 0.5, 1.0)
 	else:
 		colour = gray_colour
@@ -105,7 +105,7 @@ func _draw():
 			rect = Rect2(x - 1, y - 1, 3, 3)
 			draw_rect(rect, colour)
 
-	if filter == Globals.FILTER_NONE or filter == Globals.FILTER_STUFF:
+	if filter == Globals.FILTER.FILTER_NONE or filter == Globals.FILTER.FILTER_STUFF:
 		colour = Color(1, 0, 1)
 	else:
 		colour = gray_colour

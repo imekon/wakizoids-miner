@@ -29,7 +29,7 @@ signal mining_ship_killed
 
 func _ready():
 	targeting_helper = TargetingHelper.new()
-	status = IDLE
+	status = STATUS.IDLE
 	thrust = 0
 	last_fired = 0
 	var angle = randf() * 360
@@ -40,26 +40,26 @@ func _process(delta):
 	
 func _physics_process(delta):
 	match status:
-		IDLE:
+		STATUS.IDLE:
 			process_idle(delta)
 			# label.text = "IDLE"
-		STOP:
+		STATUS.STOP:
 			process_stop(delta)
 			# label.text = "STOP"
-		SLEEPING:
+		STATUS.SLEEPING:
 			process_sleeping(delta)
 			# label.text = "SLEEPING"
-		TURNING:
+		STATUS.TURNING:
 			process_turning(delta)
 			# label.text = "TURNING"
-		MOVING:
+		STATUS.MOVING:
 			if !process_proximity():
 				process_moving(delta)
 				# label.text = "MOVING"
-		TURN_TO_SHOOT:
+		STATUS.TURN_TO_SHOOT:
 			process_turn_to_shoot(delta)
 			# label.text = "SHOOT"
-		SHOOTING:
+		STATUS.SHOOTING:
 			process_shooting(delta)
 			# label.text = "SHOOTING"
 	
@@ -81,7 +81,7 @@ func process_proximity():
 			
 		last_stop = OS.get_ticks_msec()
 		limit_stop = Globals.random_range2(1000, 3000)
-		status = STOP
+		status = STATUS.STOP
 		return true
 		
 	return false
@@ -102,23 +102,23 @@ func process_idle(delta):
 			closest_position = pos
 				
 	if closest_rock == null:
-		status = SLEEPING
+		status = STATUS.SLEEPING
 		return
 		
 	targeting_helper.set_target(closest_rock)
 	targeting_helper.plot_course_to_target(closest_position)
 	
-	status = TURNING
+	status = STATUS.TURNING
 	
 func process_stop(delta):
 	var now = OS.get_ticks_msec()
 	if now - last_stop > limit_stop:
-		status = MOVING
+		status = STATUS.MOVING
 	
 func process_sleeping(delta):
 	var now = OS.get_ticks_msec()
 	if now - last_fired > SLEEP_TIME:
-		status = IDLE
+		status = STATUS.IDLE
 	
 func process_turning(delta):
 	if !targeting_helper.plot_course_to_target(global_position):
@@ -135,7 +135,7 @@ func process_turning(delta):
 	if abs(angle - targeting_helper.target_angle) > 1:
 		rotate(deg2rad(angle_delta))
 	else:
-		status = MOVING
+		status = STATUS.MOVING
 	
 func process_moving(delta):
 	if !targeting_helper.plot_course_to_target(global_position):
@@ -150,7 +150,7 @@ func process_moving(delta):
 	last_distance = distance
 	if distance < 500:
 		firing_count = 0
-		status = TURN_TO_SHOOT
+		status = STATUS.TURN_TO_SHOOT
 	
 func process_turn_to_shoot(delta):
 	if !targeting_helper.plot_course_to_target(global_position):
@@ -170,7 +170,7 @@ func process_turn_to_shoot(delta):
 		rotate(deg2rad(angle_delta))
 	else:
 		firing_count = 0
-		status = SHOOTING
+		status = STATUS.SHOOTING
 	
 func process_shooting(delta):
 	var now = OS.get_ticks_msec()
@@ -183,6 +183,6 @@ func process_shooting(delta):
 		firing_count += 1
 
 	if firing_count > 5:
-		status = SLEEPING
+		status = STATUS.SLEEPING
 		targeting_helper.clear()
 

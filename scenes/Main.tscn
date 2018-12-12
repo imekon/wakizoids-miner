@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://images/starfield.png" type="Texture" id=2]
@@ -10,64 +10,37 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 24
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 16
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 
-size = 16
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
 
-size = 16
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=5]
 
 size = 36
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=6]
 
-size = 16
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=7]
 
 size = 36
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 24
 font_data = ExtResource( 6 )
 
 [node name="Main" type="Node2D"]
@@ -90,167 +63,71 @@ position = Vector2( 665.421, 384.741 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -27.1395, -2.58472 )
-anchor_mode = 1
-rotating = false
 current = true
-zoom = Vector2( 1, 1 )
 limit_left = -66536
 limit_top = -66536
 limit_right = 65536
 limit_bottom = 65536
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
 drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="CreditsLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 10.0
 margin_top = 630.0
 margin_right = 200.0
 margin_bottom = 657.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Credits: 0"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="EnergyLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 30.0
 margin_top = 600.0
 margin_right = 200.0
 margin_bottom = 627.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Energy: 0"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="ShieldsLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 30.0
 margin_top = 570.0
 margin_right = 200.0
 margin_bottom = 597.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Shields: 0"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="FleetLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 30.0
 margin_top = 660.0
 margin_right = 200.0
 margin_bottom = 687.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Fleet: 0"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="RocksLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 30.0
 margin_top = 690.0
 margin_right = 200.0
 margin_bottom = 717.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Rocks: 0"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="KhiLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 30.0
 margin_top = 720.0
 margin_right = 200.0
 margin_bottom = 747.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Khi: 0.00"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Scanner" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_left = 600.0
@@ -261,205 +138,81 @@ margin_bottom = 760.0
 [node name="JumpPanel" type="Panel" parent="CanvasLayer"]
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.752941 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 230.0
 margin_top = 747.0
 margin_right = 550.0
 margin_bottom = 1167.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/JumpPanel"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 320.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 text = "Jump Engines (J)"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="DestinationList" type="ItemList" parent="CanvasLayer/JumpPanel"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 33.0
 margin_right = 300.0
 margin_bottom = 373.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/font = SubResource( 3 )
-items = [  ]
-select_mode = 0
-allow_reselect = false
-icon_mode = 1
-fixed_icon_size = Vector2( 0, 0 )
 
 [node name="JumpButton" type="Button" parent="CanvasLayer/JumpPanel"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 383.0
 margin_right = 90.0
 margin_bottom = 406.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/font = SubResource( 4 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Jump"
-flat = false
-align = 1
 
 [node name="RecallButton" type="Button" parent="CanvasLayer/JumpPanel"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 100.0
 margin_top = 383.0
 margin_right = 172.0
 margin_bottom = 406.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/font = SubResource( 4 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Recall"
-flat = false
-align = 1
 
 [node name="MessageLabel" type="Label" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0.752941 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 30.0
 margin_right = 1250.0
 margin_bottom = 25.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 5 )
 text = "Message Area"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Tween" type="Tween" parent="CanvasLayer/MessageLabel"]
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
 
 [node name="TradingPanel" type="Panel" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0.752941 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 810.0
 margin_top = 750.0
 margin_right = 1130.0
 margin_bottom = 1167.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/TradingPanel"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 320.0
 margin_bottom = 17.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 6 )
 text = "Trading (T)"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="ShipButton" type="Button" parent="CanvasLayer/TradingPanel"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 40.0
 margin_top = 42.0
 margin_right = 101.0
 margin_bottom = 84.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/font = SubResource( 7 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Buy Ship"
-flat = false
-align = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/TradingPanel"]
+margin_left = 180.0
+margin_top = 50.0
+margin_right = 275.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 8 )
+text = "1000 credits"
 
 [connection signal="player_dead" from="Player" to="." method="on_player_dead"]
 [connection signal="pressed" from="CanvasLayer/JumpPanel/JumpButton" to="." method="on_jump_pressed"]
