@@ -236,7 +236,7 @@ margin_right = 210.0
 margin_bottom = 320.0
 custom_fonts/normal_font = SubResource( 9 )
 bbcode_enabled = true
-bbcode_text = "CTRL - fire
+bbcode_text = "CTRL/Tab/Enter - fire
 Left - rotate left
 Right - rotate right
 up - forwards
@@ -248,7 +248,7 @@ Down - reverse
 5 - show only fleet
 6 - show only rocks
 7 - show only planets"
-text = "CTRL - fire
+text = "CTRL/Tab/Enter - fire
 Left - rotate left
 Right - rotate right
 up - forwards
