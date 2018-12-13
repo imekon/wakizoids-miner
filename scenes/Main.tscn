@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://images/starfield.png" type="Texture" id=2]
@@ -39,6 +39,11 @@ size = 36
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
+
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=9]
 
 size = 24
 font_data = ExtResource( 6 )
@@ -174,6 +179,7 @@ custom_fonts/font = SubResource( 4 )
 text = "Recall"
 
 [node name="MessageLabel" type="Label" parent="CanvasLayer"]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.752941 )
 margin_left = 30.0
 margin_right = 1250.0
@@ -185,6 +191,7 @@ align = 1
 [node name="Tween" type="Tween" parent="CanvasLayer/MessageLabel"]
 
 [node name="TradingPanel" type="Panel" parent="CanvasLayer"]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.752941 )
 margin_left = 810.0
 margin_top = 750.0
@@ -213,6 +220,46 @@ margin_right = 275.0
 margin_bottom = 74.0
 custom_fonts/font = SubResource( 8 )
 text = "1000 credits"
+
+[node name="HelpPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.752941 )
+margin_left = 1010.0
+margin_top = 60.0
+margin_right = 1230.0
+margin_bottom = 390.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HelpPanel"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 210.0
+margin_bottom = 320.0
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "CTRL - fire
+Left - rotate left
+Right - rotate right
+up - forwards
+Down - reverse
+1 - short range scan
+2 - medium range scan
+3 - long range scan
+4 - show only aliens
+5 - show only fleet
+6 - show only rocks
+7 - show only planets"
+text = "CTRL - fire
+Left - rotate left
+Right - rotate right
+up - forwards
+Down - reverse
+1 - short range scan
+2 - medium range scan
+3 - long range scan
+4 - show only aliens
+5 - show only fleet
+6 - show only rocks
+7 - show only planets"
 
 [connection signal="player_dead" from="Player" to="." method="on_player_dead"]
 [connection signal="pressed" from="CanvasLayer/JumpPanel/JumpButton" to="." method="on_jump_pressed"]

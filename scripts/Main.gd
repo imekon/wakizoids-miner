@@ -11,6 +11,7 @@ onready var player = $Player
 onready var jump_panel = $CanvasLayer/JumpPanel
 onready var trading_panel = $CanvasLayer/TradingPanel
 onready var destination_list = $CanvasLayer/JumpPanel/DestinationList
+onready var help_panel = $CanvasLayer/HelpPanel
 onready var message_label = $CanvasLayer/MessageLabel
 onready var message_tween = $CanvasLayer/MessageLabel/Tween
 
@@ -41,6 +42,7 @@ onready var BlackHole = load("res://scenes/BlackHole.tscn")
 
 var jump_visible = false
 var trading_visible = false
+var help_visible = false
 var jump_start
 var trading_start
 var mining_ship_id = 1
@@ -84,6 +86,9 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_trading"):
 		process_trading()
+		
+	if Input.is_action_just_pressed("ui_help"):
+		process_help()
 
 func process_jump():
 	jump_visible = !jump_visible
@@ -99,6 +104,13 @@ func process_trading():
 		trading_panel.rect_position = Vector2(trading_start.x, trading_start.y - 410)
 	else:
 		trading_panel.rect_position = trading_start
+		
+func process_help():
+	help_visible = !help_visible
+	if help_visible:
+		help_panel.visible = true
+	else:
+		help_panel.visible = false
 		
 func refresh_jump_locations():
 	destination_list.clear()
@@ -196,7 +208,7 @@ func on_alien_ship_lodged_complaint():
 	if Globals.khi > 0.5:
 		show_message("BEWARE! The aliens have declared war!")
 	else:	
-		show_message("BEWARE! The aliens have lodged a complaint!")
+		show_message("BEWARE! The aliens are angry!")
 	
 func on_jump_pressed():
 	if !destination_list.is_anything_selected():
