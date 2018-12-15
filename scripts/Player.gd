@@ -91,3 +91,7 @@ func damage(amount):
 	energy = 0
 	emit_signal("player_dead")
 	
+func killed_by_black_hole():
+	emit_signal("player_dead")
+	
+	

@@ -1,5 +1,6 @@
 extends Sprite
 
 func on_body_entered(body):
-	# what about the player???
+	if body.is_in_group("player"):
+		body.killed_by_black_hole()
 	body.queue_free()
