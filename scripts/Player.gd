@@ -54,6 +54,7 @@ func _physics_process(delta):
 			shields += 1
 			
 	if Globals.credits < 0:
+		Globals.killed_by = Globals.KILLED_BY.CREDIT
 		emit_signal("player_dead")
 	
 func process_fire():
@@ -89,9 +90,11 @@ func damage(amount):
 		return
 		
 	energy = 0
+	Globals.killed_by = Globals.KILLED_BY.ALIENS
 	emit_signal("player_dead")
 	
 func killed_by_black_hole():
+	Globals.killed_by = Globals.KILLED_BY.BLACK_HOLE
 	emit_signal("player_dead")
 	
 	

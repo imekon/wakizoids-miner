@@ -45,18 +45,18 @@ custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "You are the proud owner of a fleet of mining ships that are controlled by robotic AI that mine asteroids for you. Your own ship can mine too, but you can let the ships do it for you.
 
+There are aliens in the universe who will mostly ignore you. However... if you kill some you will anger them and they may retaliate. The Khi value indicates how angry they are. 0 means they are at peace.
+
 You also have a cat that managed to escape your ship; she's currently out there floating in the stars. You need to rescue her. You could shoot her on sight but the Intergalactic League of Felines will be most displeased with you, and likely fine you.
 
-This is a game developed for the [url=\"https://itch.io/jam/godot-wild-jam-4\"]Godot Wild Jam 4[/url] under the theme of Automation. And Cats. Copyright (c) 2018 Pete Goodwin.
-
-Created with Godot V3.1 Alpha 3."
+This is a game developed for the [url=\"https://itch.io/jam/godot-wild-jam-4\"]Godot Wild Jam 4[/url] under the theme of Automation. And Cats. Copyright (c) 2018 Pete Goodwin. Created with Godot V3.1 Alpha 3."
 text = "You are the proud owner of a fleet of mining ships that are controlled by robotic AI that mine asteroids for you. Your own ship can mine too, but you can let the ships do it for you.
 
+There are aliens in the universe who will mostly ignore you. However... if you kill some you will anger them and they may retaliate. The Khi value indicates how angry they are. 0 means they are at peace.
+
 You also have a cat that managed to escape your ship; she's currently out there floating in the stars. You need to rescue her. You could shoot her on sight but the Intergalactic League of Felines will be most displeased with you, and likely fine you.
 
-This is a game developed for the Godot Wild Jam 4 under the theme of Automation. And Cats. Copyright (c) 2018 Pete Goodwin.
-
-Created with Godot V3.1 Alpha 3."
+This is a game developed for the Godot Wild Jam 4 under the theme of Automation. And Cats. Copyright (c) 2018 Pete Goodwin. Created with Godot V3.1 Alpha 3."
 
 [node name="BackButton" type="Button" parent="Panel"]
 margin_left = 573.0
