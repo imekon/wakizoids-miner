@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/godot wild jam.png-edd0878f5e211b457d5d9957825e100d.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

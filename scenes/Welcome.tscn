@@ -5,17 +5,14 @@
 [ext_resource path="res://images/godot wild jam.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 96
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-
 size = 36
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-
 size = 24
 font_data = ExtResource( 2 )
 
