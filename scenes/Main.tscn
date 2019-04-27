@@ -57,18 +57,6 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 665.421, 384.741 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -27.1395, -2.58472 )
-current = true
-limit_left = -66536
-limit_top = -66536
-limit_right = 65536
-limit_bottom = 65536
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CreditsLabel" type="Label" parent="CanvasLayer"]
