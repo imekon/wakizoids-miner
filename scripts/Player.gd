@@ -13,6 +13,8 @@ onready var right_position = $RightPosition
 
 onready var label_node = $Node2D
 
+onready var particles = $Particles2D
+
 onready var Bullet = load("res://scenes/Bullet.tscn")
 
 var thrust: float = 0.0
@@ -26,12 +28,15 @@ func _process(delta):
 	label_node.global_rotation = 0
 
 func _physics_process(delta):
+	var fire: bool = false
 	var angle: float = 0.0
 	
 	if Input.is_action_pressed("move_forward"):
 		thrust = MOVEMENT * delta
+		fire = true
 	if Input.is_action_pressed("move_backward"):
 		thrust = -MOVEMENT * delta * 0.25
+		fire = true
 	if Input.is_action_pressed("turn_left"):
 		angle = -2
 	if Input.is_action_pressed("turn_right"):
@@ -39,6 +44,8 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("fire"):
 		process_fire()
+		
+	particles.emitting = fire
 			
 	var rot = rotation_degrees
 
