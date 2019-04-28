@@ -7,23 +7,22 @@
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.74359, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 0.02771, 0.423659, 0.886719, 1, 0, 0.156863, 1, 0.313726 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.02771, 0.423659, 0.886719, 1, 0, 0.156863, 1, 0 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 1
 emission_sphere_radius = 5.0
 flag_disable_z = true
 gravity = Vector3( -98, 0, 0 )
-angular_velocity = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 4.0
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 3 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -65,5 +64,4 @@ current = true
 position = Vector2( -72, 0 )
 emitting = false
 amount = 32
-process_material = SubResource( 2 )
-
+process_material = SubResource( 4 )

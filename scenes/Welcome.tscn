@@ -65,6 +65,5 @@ margin_right = 778.0
 margin_bottom = 723.0
 custom_fonts/font = SubResource( 3 )
 text = "Press F1 or H for help during the game"
-
 [connection signal="pressed" from="PanelContainer/Panel/StartButton" to="." method="on_start_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/AboutButton" to="." method="on_about_pressed"]
